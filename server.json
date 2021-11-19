@@ -1,0 +1,47 @@
+{
+    "attractions":[
+        {   "id": 1,
+            "name": "Projeto Tamar",
+            "address": "R. Prof. Ademir Francisco, s/n - Barra da Lagoa, Florianópolis - SC, 88061-160",
+            "number": "(48) 3236-2015",
+            "hours": "10:00 - 17:00, de quarta à segunda",
+            "site": "https://www.tamar.org.br/centros_visitantes.php?cod=8",
+            "price": "Inteira: R$ 24,00 Meia - R$ 12,00",
+            "images": "https://www.tamar.org.br/fotos/DN09_C_1637.jpg",
+            "liked": false
+        },
+        {
+            "id": 2,
+            "name": "Parque Municipal do Corrego Grande",
+            "address": "R. João Pio Duarte Silva, 535 - Córrego Grande, Florianópolis - SC, 88037-000",
+            "number": "(48) 3269-9551",
+            "hours": "6:30 - 18:30, todos os dias",
+            "site": "https://m.facebook.com/profile.php?id=173592826039725",
+            "price": "Gratuito",
+            "images": "https://dacampos.com.br/artigos/0984a6d8b585d98598a6c1b242c63793.jpg",
+            "liked": false
+        },
+        {
+            "id": 3,
+            "name": "Água Show Park",
+            "address":  "Rodovia Armando Calil Bullos, SC-403, 3868 - Ingleses Norte, Florianópolis - SC, 88058-000",
+            "number": "(48) 3369-2354",
+            "hours": "10:00 - 20:00, de quarta à domingo",
+            "site": "https://www.aguashowpark.com.br/",
+            "price": "Inteira - R$ 100,00 Meia - R$ 50,00",
+            "images": "https://i0.wp.com/viajandoem321.com/wp-content/uploads/2016/01/9-blog-viajando-em-3-2-1-agua-show-park-florian%C3%B3polis-ingleses-santa-catarina-melhor-parque-aqu%C3%A1tico.jpg",
+            "liked": false
+        },
+        {
+            "id": 4,
+            "name": "Projeto Tamara",
+            "address": "R. Prof. Ademir Francisco, s/n - Barra da Lagoa, Florianópolis - SC, 88061-160",
+            "number": "(48) 3236-2015",
+            "hours": "10:00 - 17:00, de quarta à segunda",
+            "site": "https://www.tamar.org.br/centros_visitantes.php?cod=8",
+            "price": "Inteira: R$ 24,00 \n Meia - R$ 12,00",
+            "images": "https://www.tamar.org.br/fotos/DN09_C_1637.jpg",
+            "liked": false
+        }
+    ]
+}
