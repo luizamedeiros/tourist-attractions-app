@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Text, Image, StyleSheet, Pressable, Linking} from 'react-native'
+import api from '../services/api';
 
 export default function AttractionCardScreen({route, navigation}){
     const {attraction} = route.params;
@@ -16,6 +17,14 @@ export default function AttractionCardScreen({route, navigation}){
             </Pressable>
             <Pressable  onPress={() => Linking.openURL(`${attraction.site}`)}>
             <Text style={styles.button}> Acessar site </Text>
+            </Pressable>
+            <Pressable  
+                onPress={() => 
+                api.patch( `http://192.168.68.117:3000/attractions/${attraction.id}`, 
+                { "liked": !attraction.liked})
+                }
+            >
+            <Text style={styles.button}> Curtir atração </Text>
             </Pressable>
         </ScrollView>
     )

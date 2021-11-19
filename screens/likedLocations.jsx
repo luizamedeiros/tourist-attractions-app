@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'rea
 import api from '../services/api';
 
 export default function LikedLocationsScreen({navigation}){
-    const [attractions,SetAttractions] = useState([]);
+    const [attractions, SetAttractions] = useState([]);
 
     useEffect(() => {
         const accessAPI = async ()=>{

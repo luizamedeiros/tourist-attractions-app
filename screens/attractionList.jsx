@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from '../services/api';
-import { AttractionCard } from './attractionCard';
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
-// import LikedLocationsButton from './components/likedLocationsButton';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Pressable, SafeAreaView } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function AttractionListScreen({navigation}){
     const [attractions, setAttractions] = useState([]);
@@ -12,13 +11,15 @@ export default function AttractionListScreen({navigation}){
         const allAttractions = await api.get("http://192.168.68.117:3000/attractions/");
         const newAttraction = allAttractions.data.map((attr)=>{
             return{
+                id: attr.id,
                 name: attr.name,
                 address: attr.address,
                 number: attr.number,
                 hours: attr.hours,
                 site: attr.site,
                 price: attr.price,
-                images: attr.images
+                images: attr.images,
+                liked: attr.liked
             };
         });
         setAttractions(newAttraction);
@@ -29,7 +30,8 @@ export default function AttractionListScreen({navigation}){
     return(
         <SafeAreaView style={styles.container}>
 
-            <TouchableOpacity style={styles.buttonContainer}>
+            <Pressable style={styles.button}>
+             <Icon style={styles.icon} name="heart" size={20} color="#899436" />
                 <Text 
                 onPress={()=>{
                         navigation.navigate('Curtidos')
@@ -38,17 +40,21 @@ export default function AttractionListScreen({navigation}){
                 style={styles.buttonTxt}>
                     Meus lugares curtidos
                 </Text>
-            </TouchableOpacity>
+            </Pressable>
             
             <ScrollView>
             {attractions.map((attr)=>(
                 <View>
                     <TouchableOpacity style ={styles.card} 
                     onPress={()=>{
+                        console.log(attr.id, attr.liked);
                         navigation.navigate('Informações', { attraction: attr})
                     }}>
                         <Image style={styles.thumbnail} source={{uri: attr.images}}/>
-                        <Text style={styles.title}>{attr.name}</Text>
+                        <Text style={styles.title}>
+                            {attr.name} 
+                        </Text>
+                        
                     </TouchableOpacity>
                 </View>
             ))}
@@ -59,22 +65,25 @@ export default function AttractionListScreen({navigation}){
 export {AttractionListScreen};
 
 const styles = StyleSheet.create({
-    buttonContainer:{
-        marginBottom: 20
-
-    },
     buttonTxt:{
         fontSize: '22px',
         color: '#899436',
         fontWeight: 'bold',
-        letterSpacing: '1px',
+        letterSpacing: '1px'
+    },
+    button: {
+        marginBottom: 20,
         textAlign:'center',
         width: '100%',
         backgroundColor: 'white',
         borderRadius: '7px',
         border: '1px solid #899436',
         padding: '1%',
-        margin: 'auto'
+        margin: 'auto',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     container: {
         marginTop: 20,
@@ -103,8 +112,14 @@ const styles = StyleSheet.create({
         paddingLeft: '20px',
         paddingTop: '15px',
         paddingBottom: '22px',
-        width: '100%'
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    icon: {
+        paddingRight: 20
     }
+    
     
 
 });
