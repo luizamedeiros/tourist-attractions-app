@@ -8,7 +8,6 @@ export default function AttractionCardScreen({route, navigation}){
             <View style={styles.infoContainer}>
                 <Image style={styles.thumbnail} source={{uri: attraction.images}}/>
                 <Text style={styles.info}> <strong> Nome: </strong> {attraction.name}</Text>
-                <Text style={styles.info}> <strong> Site: </strong> {attraction.site}</Text>
                 <Text style={styles.info}> <strong> Horário de funcionamento: </strong> {attraction.hours}</Text>
                 <Text style={styles.info}> <strong> Valores: </strong>{attraction.price}</Text>
             </View>
